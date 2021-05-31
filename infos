@@ -1,0 +1,12 @@
+helpers.js : rend le programme plus facile à lire en donnant des noms descriptifs aux fonctions.
+store.js : Crée un nouvel objet de stockage côté client et crée une collection vide si aucune collection n'existe déjà.
+model.js : Crée une nouvelle instance de modèle et connecte le stockage.
+template.js : Définit les valeurs par défaut pour toutes les méthodes de modèle telles qu'un modèle par défaut
+view.js : Vue qui fait abstraction complète du DOM du navigateur.
+controller.js : Prend un modèle et une vue et agit en tant que contrôleur entre eux
+app.js : Configure une toute nouvelle liste Todo.
+
+
+
+
+
