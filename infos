@@ -6,6 +6,8 @@ view.js : Vue qui fait abstraction complète du DOM du navigateur.
 controller.js : Prend un modèle et une vue et agit en tant que contrôleur entre eux
 app.js : Configure une toute nouvelle liste Todo.
 
+https://github.com/Gu1ll0m/projet8_todolist/blob/master/test/ControllerSpec.js
+
 
 
 
