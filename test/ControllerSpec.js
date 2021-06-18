@@ -60,6 +60,11 @@ describe('controller', function () {
 
 	it('should show entries on start-up', function () {
 		// TODO: write test
+            setUpModel([]);
+
+		subject.setView('');
+
+		expect(view.render).toHaveBeenCalledWith('showEntries', []);
 	});
 
 	describe('routing', function () {
@@ -77,17 +82,29 @@ describe('controller', function () {
 			var todo = {title: 'my todo'};
 			setUpModel([todo]);
 
-			subject.setView('#/');
+			subject.showAll()
 
-			expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+			expect(model.read).toHaveBeenCalled();
 		});
 
 		it('should show active entries', function () {
 			// TODO: write test
+                  var todo = {title: 'my todo', completed: false};
+			setUpModel([todo]);
+
+                  subject.showActive()
+
+                  expect(model.read).toHaveBeenCalledWith({completed: false}, jasmine.any(Function));
 		});
 
 		it('should show completed entries', function () {
 			// TODO: write test
+                  var todo = {title: 'my todo', completed: true};
+			setUpModel([todo]);
+
+                  subject.showCompleted()
+
+			expect(model.read).toHaveBeenCalledWith({completed: true}, jasmine.any(Function));
 		});
 	});
 
@@ -135,6 +152,7 @@ describe('controller', function () {
 
 	it('should highlight "All" filter by default', function () {
 		// TODO: write test
+            
 	});
 
 	it('should highlight "Active" filter when switching to active view', function () {
