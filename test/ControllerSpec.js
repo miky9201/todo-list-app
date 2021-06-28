@@ -67,6 +67,17 @@ describe('controller', function () {
 		expect(view.render).toHaveBeenCalledWith('showEntries', []);
 	});
 
+      it('should fail render "tutu" entry on start-up', function () {
+		// TODO: write test
+            setUpModel([]);
+
+		subject.setView('');
+
+		expect(view.render).not.toHaveBeenCalledWith('tutu', []);
+	});
+
+      //toBeDefine ou tobeUndefine (pour l'affichage html)
+
 	describe('routing', function () {
 
 		it('should show all entries without a route', function () {

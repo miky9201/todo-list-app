@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "eslint": "^7.27.0",
-    "jasmine-core": "^2.0.0"
+    "jasmine-core": "^2.0.0",
+    "jsdoc": "^3.6.7"
   }
 }
