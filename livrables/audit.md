@@ -10,7 +10,7 @@ Notre concurrent propose une application de todo-list contenant les fonctionnali
 
 
 ### 2- Utilisation de Lighthouse
-L’ audit de notre concurrent a été réaliser via l'outil Google Chrome Lighthouse permettant d'analyser différentes caractéristiques d'un site.
+L’ audit de notre concurrent a été réalisé via l'outil Google Chrome Lighthouse permettant d'analyser différentes caractéristiques d'un site.
 
 ![img](images/audit0.png)
 
@@ -18,10 +18,9 @@ L’ audit de notre concurrent a été réaliser via l'outil Google Chrome Light
 
 ![img](images/audit1.png)
 
-L’ affichage complet de la page prend 6,49 secs.
-Les différentes image prennent un peu de temps à charger, amélioration possible ici.
+Lorsque l'on analyse la première partie de ce rapport on peut voir qu'un élément est plutôt performant : Le First Contentful Paint. Il correspond au premier élément du DOM qui s'affiche sur l'écran de l'utilisateur.
 
-##### 1,88 secondes pour ce visuel :
+##### 0,8 secondes pour cette donnée.
 
 ![img](audit_network_1.88ms.png)
 
