@@ -18,119 +18,13 @@ L’ audit de notre concurrent a été réalisé via l'outil Google Chrome Light
 
 ![img](images/audit1.png)
 
+##### 2-1-1 First Contentful Paint
 Lorsque l'on analyse la première partie de ce rapport on peut voir qu'un élément est plutôt performant : Le First Contentful Paint. Il correspond au premier élément du DOM qui s'affiche sur l'écran de l'utilisateur.
 
-##### 0,8 secondes pour cette donnée.
+###### 0,8 secondes pour cette donnée.
 
-![img](audit_network_1.88ms.png)
+Cette donnée est considérée comme bonne par lighthouse car elle se situe en dessous du seuil des 1,8 secondes qui est considéré par l'outil comme le temps d'affichage limite pour une performance optimale.
 
-1,88 secondes pour afficher le squelette de l’ application. Pas extrêmement rapide pour des éléments de base. 
-
-La console montre que c’est vraiment les PNG qui posent le plus problème.
-
-##### 5,91 secondes pour ce visuel:
-
-![img](audit_network_5.91ms.png)
-
-5,91 secondes pour l’affichage de l’ entête et du footer : grosse marge d’ amélioration en optimisant les images (formatSVG à la place de PNG).
-
-##### 6,31 secondes pour ce visuel :
-
-![img](audit_network_6.31ms.png)
-
-0,4 secondes pour l’ affichage des éléments todo, c’est plutôt rapide.
-
-On peut optimiser le temps de chargement en utilisant le cache pour les images.
-
-Les 2 fichiers les plus longs à chargés sont  le background (texture.png) et jQuery (jquery-ui.js).
-
-Le background peut-être optimisé (background repeat + fichier en SVG), jQuery intégré uniquement les fonctions utiles.
-
-![img](audit_network_texture.png)
-
-![img](audit_network_jquery.png)
-
-Avec l’ outil coverage on se rend compte par exemple que 75 % Jquery est non utilisés.
-
-![img](audit_network_coverage.png)
-
-#### 2-2- Outil « audit »
-4 catégories :
-* Progressive Web App
-* Performance
-* Accessibilité
-* Bonnes pratiques
-
-##### 2-2-1- Progressive Web App
-
-![img](audit_pwa.png)
-
-9 % de réussite, 10 tests ratés sur 11.
-
-Le site de notre concurrent n’est pas du tout orienté PWA, un point sur lequel nous avons une énorme marge de manœuvre.
-
-##### 2-2-2- Performance
-
-![img](audit_perf.png)
-
-42 % de test validé, application trop lente.
-
-Les PNG peuvent être amélioré (SVG, background repeat) tout comme certains fichier JS (utilisation de jquery).
-
-##### 2-2-3- Accessibilité
-
-![img](audit_accessibilite.png)
-
-83 % de réussite, quelques points d’ amélioration comme :
-* ajouter un attribut alt pour les images
-* accentuer plus les contrastes
-* ajouter un attribut lang dans le HTML
-
-##### 2-2-4- Bonnes pratiques
-
-![img](audit_practice.png)
-
-Recommandations pour améliorer les performances et moderniser l’ application.
-
-56 %, grosse marge de progression ici également.
-* pas de HTTPS
-* 2 failles de sécurités dans les librairies front utilisés
-* présences de deux erreurs dans la console
-
-### 3- Comparaison avec notre application
-
-![img](audit_notre_app.png)
-
-#### 3-1. Amélioration possible du PWA
-* simple comme `meta name= «theme-color »`
-* gestion du offline avec un splashscreen...
-
-#### 3-2. Performance 
-OK
-
-#### 3-3. Bonnes pratiques 
-4 tests ratés sur 12. A vérifier.
-
-#### 3-4. Accessibilité
-* label : `input class="new-todo" placeholder="What needs to be done?" autofocus`
-* amélioration du contraste entre le 1er plan et le fond d’ écran
-
-### 4- Scalling :
-Fonctionnalité que l’on pourrait éventuellement intégré à notre application :
-* temporalité
-* catégories de liste
-
-### 5- Résumé
-##### Application de notre concurrent :
-1. Lente, pas optimisé
-2. pas orienté PWA
-3. Accessibilité correcte
-4. Design discutable, quelques fonctionnalités intéressantes
-
-##### Notre application :
-1. Rapide, optimisé et performante
-2. PWA améliorable, axe d’ amélioration évident
-3. Bonne accessibilité, amélioration via `label` et contrastes pour que ce soit parfait
-4. La temporalité et les catégories de listes pourraient être intégrés ?
+##### 2-1-2 First Contentful Paint
 
 
