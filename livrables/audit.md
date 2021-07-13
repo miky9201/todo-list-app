@@ -2,7 +2,6 @@
 ## http://todolistme.net/
 
 ### 1- Résumé du fonctionnement de l’ application
-
 Notre concurrent propose une application de todo-list contenant les fonctionnalités suivantes : 
 1. créer des catégories de liste de tâches à effectuer
 2. créer des liste de tâches à effectuer, les enregistrer, les éditer et les effacer
@@ -26,9 +25,15 @@ Le Speed Index mesure la rapidité avec laquelle le contenu est affiché visuell
 
 ![img](images/audit3.png)
 
-Cette donnée, considérée comme moyenne car elle se situe en dessous du seuil des 1,8 secondes, peut s'expliquer par un travail trop important sur  le fil principal de l'application, un temps d'éxécution trop long du Javascript, ou le manque d'un texte déjà présent le temps de chargement des polices. 
+Cette donnée, considérée comme moyenne car elle se situe au dessus du seuil des 1,5 secondes, peut s'expliquer par un travail trop important sur le fil principal de l'application, un temps d'éxécution trop long du Javascript, ou le manque d'un texte déjà présent le temps de chargement des polices. 
 
 #### 2-1-3 Largest Contentful Paint
+Le Largest Contentful Paint mesure le temps que met le plus grand élément du contenu à s'afficher :
+
+![img](images/audit4.png)
+
+Cette donnée est considérée comme moyenne car elle se situe entre 2 et 4 secondes, et peut s'expliquer par des éléments qui bloquent le rendu de la page comme certains fichiers CSS non cruciaux
+
 #### 2-1-4 Time to Interactive
 #### 2-1-5 Total Blocking Time
 #### 2-1-6 Cumulative Layout Shift
