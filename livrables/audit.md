@@ -49,5 +49,10 @@ Le Total Blocking Time mesure le temps total pendant lequel une page est bloqué
 Avec 960ms, il serait important de remédier au problème pour réduire le Total Blocking Time. Pour cela une première piste pourrait être de limiter le nombre de fournisseurs tiers redondants et essayez de charger du code tiers une fois que votre page a principalement fini de se charger. De plus les scripts externes injectés dynamiquement via `document.write()` peuvent retarder le chargement de la page de plusieurs dizaines de secondes
 
 #### 2-6 Cumulative Layout Shift
+Le Cumulative Layout Shift mesure chaque changement de mise en page inattendu qui se produit pendant toute la durée de vie d'une page. 
+Un changement de mise en page se produit chaque fois qu'un élément visible change de position d'une image rendue à la suivante.
 
+![img](images/audit7.png)
 
+Dans le contexte de cet audit, c'est certainement l'absence de largeur et de hauteur définies pour les images qui constituent la mauvaise performance du CLS.
+De plus l'apparition des encarts publicitaires amplifient le phénomène car elles mettent plus de temps à charger.
