@@ -35,6 +35,12 @@ Le Largest Contentful Paint mesure le temps que met le plus grand élément du c
 Cette donnée est considérée comme moyenne car elle se situe entre 2 et 4 secondes, et peut s'expliquer par des éléments qui bloquent le rendu de la page comme certains fichiers CSS non cruciaux
 
 #### 2-1-4 Time to Interactive
+Le Time to Interactive mesure lle temps qu'il faut pour que la page devienne entièrement interactive :
+
+![img](images/audit5.png)
+
+Cette donnée est considérée comme moyenne car elle se situe entre 2 et 4 secondes. Une amélioration pouvant avoir un effet particulièrement important sur le TTI est la suppression des scripts inutiles. En particulier, la réduction des charges utiles JavaScript avec le fractionnement du code.
+
 #### 2-1-5 Total Blocking Time
 #### 2-1-6 Cumulative Layout Shift
 
