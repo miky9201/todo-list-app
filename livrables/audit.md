@@ -56,3 +56,8 @@ Un changement de mise en page se produit chaque fois qu'un élément visible cha
 
 Dans le contexte de cet audit, c'est certainement l'absence de largeur et de hauteur définies pour les images qui constituent la mauvaise performance du CLS.
 De plus l'apparition des encarts publicitaires amplifient le phénomène car elles mettent plus de temps à charger.
+
+### 2- Comparaison avec notre Application
+En terme de performance, l'application est quasi parfaite, il faudrait juste supprimer un console.log d'erreur du à une erreur d'accès au serveur.
+
+![img](images/audit8.png)
