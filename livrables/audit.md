@@ -60,4 +60,6 @@ De plus l'apparition des encarts publicitaires amplifient le phénomène car ell
 ### 2- Comparaison avec notre Application
 En terme de performance, l'application est quasi parfaite, il faudrait juste supprimer un console.log d'erreur du à une erreur d'accès au serveur.
 
+![img](images/audit9.png)
+
 ![img](images/audit8.png)
