@@ -58,8 +58,12 @@ Dans le contexte de cet audit, c'est certainement l'absence de largeur et de hau
 De plus l'apparition des encarts publicitaires amplifient le phénomène car elles mettent plus de temps à charger.
 
 ### 2- Comparaison avec notre Application
-En terme de performance, l'application est quasi parfaite, il faudrait juste supprimer un console.log d'erreur du à une erreur d'accès au serveur.
+En terme de performance, l'application possède un excellent score, il faudrait juste supprimer un console.log d'erreur du à une erreur d'accès au serveur.
 
 ![img](images/audit9.png)
 
 ![img](images/audit8.png)
+
+Enfin voici quelques éléments améliorable d'un point de vue progressive web app :
+
+![img](images/audit10.png)
