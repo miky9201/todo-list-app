@@ -15,8 +15,14 @@
 		this.controller = new app.Controller(this.model, this.view);
 	}
 
+      /**
+	 * Define a new todo
+	 */
 	var todo = new Todo('todos-vanillajs');
 
+      /**
+	 * Add the route inside URL - ''|| active || completed
+	 */
 	function setView() {
 		todo.controller.setView(document.location.hash);
 	}

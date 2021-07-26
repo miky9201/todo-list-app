@@ -27,6 +27,10 @@
 		this.$newTodo = qs('.new-todo');
 	}
 
+      /**
+	 * Delete the todo depending on ID
+	 * @param {number} (id) Deleting element ID.
+	*/
 	View.prototype._removeItem = function (id) {
 		var elem = qs('[data-id="' + id + '"]');
 
@@ -35,16 +39,30 @@
 		}
 	};
 
+      /**
+	 * Hide the finished elements.
+	 * @param  {number} (completedCount) number of elements ticked.
+	 * @param  {bolean} (visible) True if visible
+	 */
 	View.prototype._clearCompletedButton = function (completedCount, visible) {
 		this.$clearCompleted.innerHTML = this.template.clearCompletedButton(completedCount);
 		this.$clearCompleted.style.display = visible ? 'block' : 'none';
 	};
 
+      /**
+	 * Show the current page
+	 * @param {string} (currentPage) Current page may have values as '' || active || completed.
+	 */
 	View.prototype._setFilter = function (currentPage) {
 		qs('.filters .selected').className = '';
 		qs('.filters [href="#/' + currentPage + '"]').className = 'selected';
 	};
 
+      /**
+	 * Testing if the element is over
+	 * @param  {number} (id) ID of tested element.
+	 * @param  {bolean} (completed) element status.
+	 */
 	View.prototype._elementComplete = function (id, completed) {
 		var listItem = qs('[data-id="' + id + '"]');
 
@@ -58,6 +76,11 @@
 		qs('input', listItem).checked = completed;
 	};
 
+      /**
+	 * Edit an element
+	 * @param  {number} (id) ID of the editing element
+	 * @param  {string} (title) new content of the element
+	 */
 	View.prototype._editItem = function (id, title) {
 		var listItem = qs('[data-id="' + id + '"]');
 
@@ -75,6 +98,11 @@
 		input.value = title;
 	};
 
+      /**
+	 * Remplace l' ancien élément par l' élément édité.
+	 * @param  {number} (id)    L' ID de l' élément à éditer.
+	 * @param  {string} (title) Le contenu de le la modification de l' élément.
+	 */
 	View.prototype._editItemDone = function (id, title) {
 		var listItem = qs('[data-id="' + id + '"]');
 
@@ -92,39 +120,77 @@
 		});
 	};
 
+      /**
+	 * Retourne les éléments dans le DOM.
+	 * @param  {string} (viewCmd)   La fonction active.
+	 * @param  {object} (parameter) Les paramètres actifs.
+	 */
 	View.prototype.render = function (viewCmd, parameter) {
 		var self = this;
 		var viewCommands = {
+                  /**
+			 * Affiche les éléments
+			 */
 			showEntries: function () {
 				self.$todoList.innerHTML = self.template.show(parameter);
 			},
+                  /**
+			 * Supprime l' élément
+			 */
 			removeItem: function () {
 				self._removeItem(parameter);
 			},
+                  /**
+			 * Met à jour le compteur
+			 */
 			updateElementCount: function () {
 				self.$todoItemCounter.innerHTML = self.template.itemCounter(parameter);
 			},
+                  /**
+			 * Affiche le bouton 'clearCompleted'
+			 */
 			clearCompletedButton: function () {
 				self._clearCompletedButton(parameter.completed, parameter.visible);
 			},
+                  /**
+			 * Vérifie la visibilité d' élément
+			 */
 			contentBlockVisibility: function () {
 				self.$main.style.display = self.$footer.style.display = parameter.visible ? 'block' : 'none';
 			},
+                  /**
+			 * Affiche tous les éléments
+			 */
 			toggleAll: function () {
 				self.$toggleAll.checked = parameter.checked;
 			},
+                  /**
+			 * Filtre les éléments
+			 */
 			setFilter: function () {
 				self._setFilter(parameter);
 			},
-			clearNewTodo: function () {
+			/**
+			 * Vide le contenu du nouveau todo dans l' input
+			 */
+                   clearNewTodo: function () {
 				self.$newTodo.value = '';
 			},
+			/**
+			 * Affiche les éléments avec le statut completed
+			 */
 			elementComplete: function () {
 				self._elementComplete(parameter.id, parameter.completed);
 			},
+			/**
+			 * Permet d' éditer un élément
+			 */
 			editItem: function () {
 				self._editItem(parameter.id, parameter.title);
 			},
+			/**
+			 * Sauvegarde l' édition d' un élément
+			 */
 			editItemDone: function () {
 				self._editItemDone(parameter.id, parameter.title);
 			}
@@ -133,11 +199,19 @@
 		viewCommands[viewCmd]();
 	};
 
+      /**
+	 * Ajoute un ID à l' élément.
+	 * @param  {object} (element) L' élément actif.
+	 */
 	View.prototype._itemId = function (element) {
 		var li = $parent(element, 'li');
 		return parseInt(li.dataset.id, 10);
 	};
 
+      /**
+	 * EventListener sur la validation de l' édition d'un élément.
+	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 */
 	View.prototype._bindItemEditDone = function (handler) {
 		var self = this;
 		$delegate(self.$todoList, 'li .edit', 'blur', function () {
@@ -158,6 +232,10 @@
 		});
 	};
 
+      /**
+	 * EventListener sur l' annulation de l' édition d'un élément.
+	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 */
 	View.prototype._bindItemEditCancel = function (handler) {
 		var self = this;
 		$delegate(self.$todoList, 'li .edit', 'keyup', function (event) {
@@ -170,6 +248,11 @@
 		});
 	};
 
+      /**
+	 * Fait le lien entre les méthodes du {@link Controller} et les éléments de {@link View}.
+	 * @param  {function} (event)   L' évenement actif.
+	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 */
 	View.prototype.bind = function (event, handler) {
 		var self = this;
 		if (event === 'newTodo') {
