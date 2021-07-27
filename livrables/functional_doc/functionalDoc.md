@@ -60,17 +60,17 @@ Ce bouton sert à effacer la todo que l’on a indiqué comme terminée.
 
 ## 4. Voir l’état de nos todos
 
-1. ![img](images/functional5.png)
+ ![img](images/functional5.png)
 
-Le bouton __All__ nous montre l’ensemble des Todos, peut importe leur état.
+1. Le bouton __All__ nous montre l’ensemble des Todos, peut importe leur état.
 
-2. ![img](images/functional6.png)
+ ![img](images/functional6.png)
 
-Le bouton __Active__ nous montre les Todos en cours.
+2. Le bouton __Active__ nous montre les Todos en cours.
 
-3. ![img](images/functional7.png)
+ ![img](images/functional7.png)
 
-Le bouton __Completed__ nous montre les todos que nous avons terminé.
+3. Le bouton __Completed__ nous montre les todos que nous avons terminé.
 
 ## 5. Supprimer une ou plusieurs todos
 
