@@ -36,9 +36,6 @@ Plusieurs éléments sont apparus :
 + un onglet __active__
 + un onglet __completed__
 
-Voyons maintenant comment modifier une todo.
-
-
 ## 2. Modifier un Todo
 
 ![img](images/functional3.png)
@@ -48,9 +45,6 @@ Dans le but d’avoir l’application la plus simple possible nous avons choisi 
 Taper sur _Entrée_ pour valider la modification ou sur _échap_ pour l'annuler.
 
 La todo qui est en cours de modification est encadrée.
-
-Voyons maintenant comment modifier l’état d’avancement d’une todo.
-
 
 ## 3. Modifier l’état d’avancement d’un todo
 
@@ -77,7 +71,6 @@ Le bouton __Active__ nous montre les Todos en cours.
 3. ![img](images/functional7.png)
 
 Le bouton __Completed__ nous montre les todos que nous avons terminé.
-
 
 ## 5. Supprimer une ou plusieurs todos
 
