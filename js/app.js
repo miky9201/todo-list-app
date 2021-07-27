@@ -1,10 +1,10 @@
 /*global app, $on */
-(function () {
+
 	'use strict';
 
 	/**
 	 * Sets up a brand new Todo list.
-	 *
+	 * @constructor
 	 * @param {string} name The name of your new to do list.
 	 */
 	function Todo(name) {
@@ -28,4 +28,4 @@
 	}
 	$on(window, 'load', setView);
 	$on(window, 'hashchange', setView);
-})();
+

@@ -1,5 +1,5 @@
 /*jshint laxbreak:true */
-(function (window) {
+
 	'use strict';
 
 	var htmlEscapes = {
@@ -111,4 +111,4 @@
 	// Export to window
 	window.app = window.app || {};
 	window.app.Template = Template;
-})(window);
+

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Model</title>
+    <title>JSDoc: Class: Store</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Model</h1>
+    <h1 class="page-title">Class: Store</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Model<span class="signature">(storage)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Store<span class="signature">(name, callback)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Model"><span class="type-signature"></span>new Model<span class="signature">(storage)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Store"><span class="type-signature"></span>new Store<span class="signature">(name, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -49,7 +49,8 @@
 
 
 <div class="description">
-    Creates a new Model instance and hooks up the storage.
+    Creates a new client side storage object and will create an empty
+collection if no collection already exists.
 </div>
 
 
@@ -85,13 +86,13 @@
 
         <tr>
             
-                <td class="name"><code>storage</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">string</span>
 
 
             
@@ -101,7 +102,31 @@
 
             
 
-            <td class="description last">A reference to the client side storage class</td>
+            <td class="description last">The name of our DB we want to use</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Our fake DB uses callbacks because in
+real life you probably would be making AJAX calls</td>
         </tr>
 
     
@@ -142,7 +167,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line10">line 10</a>
+        <a href="store.js.html">store.js</a>, <a href="store.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -198,7 +223,7 @@
     
 
     
-    <h4 class="name" id="create"><span class="type-signature"></span>create<span class="signature">(title<span class="signature-attributes">opt</span>, callback<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="drop"><span class="type-signature"></span>drop<span class="signature">(callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -206,7 +231,7 @@
 
 
 <div class="description">
-    Creates a new todo model
+    Will drop all storage and start fresh
 </div>
 
 
@@ -230,8 +255,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -240,39 +263,6 @@
     </thead>
 
     <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>title</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The title of the task</td>
-        </tr>
-
     
 
         <tr>
@@ -290,20 +280,10 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">The callback to fire after the model is created</td>
+            <td class="description last">The callback to fire after dropping the data</td>
         </tr>
 
     
@@ -344,7 +324,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line20">line 20</a>
+        <a href="store.js.html">store.js</a>, <a href="store.js.html#line146">line 146</a>
     </li></ul></dd>
     
 
@@ -380,7 +360,7 @@
     
 
     
-    <h4 class="name" id="getCount"><span class="type-signature"></span>getCount<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="find"><span class="type-signature"></span>find<span class="signature">(query, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -388,98 +368,7 @@
 
 
 <div class="description">
-    Returns a count of all todos
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line96">line 96</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="read"><span class="type-signature"></span>read<span class="signature">(query<span class="signature-attributes">opt</span>, callback<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Finds and returns a model in storage. If no query is given it'll simply
-return everything. If you pass in a string or number it'll look that up as
-the ID of the model to find. Lastly, you can pass it an object to match
-against.
+    Finds items based on a query given as a JS object
 </div>
 
 
@@ -502,8 +391,6 @@ against.
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
         
 
         
@@ -523,12 +410,6 @@ against.
             <td class="type">
             
                 
-<span class="param-type">string</span>
-|
-
-<span class="param-type">number</span>
-|
-
 <span class="param-type">object</span>
 
 
@@ -536,20 +417,10 @@ against.
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">A query to match models against</td>
+            <td class="description last">The query to match against (i.e. {foo: 'bar'})</td>
         </tr>
 
     
@@ -569,20 +440,11 @@ against.
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">The callback to fire after the model is found</td>
+            <td class="description last">The callback to fire when the query has
+completed running</td>
         </tr>
 
     
@@ -623,7 +485,7 @@ against.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line47">line 47</a>
+        <a href="store.js.html">store.js</a>, <a href="store.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -654,10 +516,147 @@ against.
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>model.read(1, func); // Will find the model with an ID of 1
-model.read('1'); // Same as above
-//Below will find a model with foo equalling bar and hello equalling world.
-model.read({ foo: 'bar', hello: 'world' });</code></pre>
+    <pre class="prettyprint"><code>db.find({foo: 'bar', hello: 'world'}, function (data) {
+	 // data will return any items that have foo: bar and
+	 // hello: world in their properties
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="findAll"><span class="type-signature"></span>findAll<span class="signature">(callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Will retrieve all data from the collection
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The callback to fire upon retrieving data</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="store.js.html">store.js</a>, <a href="store.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -675,7 +674,7 @@ model.read({ foo: 'bar', hello: 'world' });</code></pre>
 
 
 <div class="description">
-    Removes a model from storage
+    Will remove an item from the Store based on its ID
 </div>
 
 
@@ -727,7 +726,7 @@ model.read({ foo: 'bar', hello: 'world' });</code></pre>
 
             
 
-            <td class="description last">The ID of the model to remove</td>
+            <td class="description last">The ID of the item you want to remove</td>
         </tr>
 
     
@@ -750,7 +749,7 @@ model.read({ foo: 'bar', hello: 'world' });</code></pre>
 
             
 
-            <td class="description last">The callback to fire when the removal is complete.</td>
+            <td class="description last">The callback to fire after saving</td>
         </tr>
 
     
@@ -791,7 +790,7 @@ model.read({ foo: 'bar', hello: 'world' });</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line80">line 80</a>
+        <a href="store.js.html">store.js</a>, <a href="store.js.html#line120">line 120</a>
     </li></ul></dd>
     
 
@@ -827,7 +826,7 @@ model.read({ foo: 'bar', hello: 'world' });</code></pre>
     
 
     
-    <h4 class="name" id="removeAll"><span class="type-signature"></span>removeAll<span class="signature">(callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="save"><span class="type-signature"></span>save<span class="signature">(updateData, callback, id)</span><span class="type-signature"></span></h4>
     
 
     
@@ -835,7 +834,8 @@ model.read({ foo: 'bar', hello: 'world' });</code></pre>
 
 
 <div class="description">
-    WARNING: Will remove ALL data from storage.
+    Will save the given data to the DB. If no item exists it will create a new
+item, otherwise it'll simply update an existing item's properties
 </div>
 
 
@@ -871,168 +871,7 @@ model.read({ foo: 'bar', hello: 'world' });</code></pre>
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The callback to fire when the storage is wiped.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line89">line 89</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">(id, data, callback)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Updates a model by giving it an ID, data to update, and a callback to fire when
-the update is complete.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The id of the model to update</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>updateData</code></td>
             
 
             <td class="type">
@@ -1048,7 +887,7 @@ the update is complete.
 
             
 
-            <td class="description last">The properties to update and their new value</td>
+            <td class="description last">The data to save back into the DB</td>
         </tr>
 
     
@@ -1071,7 +910,30 @@ the update is complete.
 
             
 
-            <td class="description last">The callback to fire when the update is complete.</td>
+            <td class="description last">The callback to fire after saving</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An optional param to enter an ID of an item to update</td>
         </tr>
 
     
@@ -1112,7 +974,7 @@ the update is complete.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line70">line 70</a>
+        <a href="store.js.html">store.js</a>, <a href="store.js.html#line78">line 78</a>
     </li></ul></dd>
     
 

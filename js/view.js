@@ -1,12 +1,13 @@
 /*global qs, qsa, $on, $parent, $delegate */
 
-(function (window) {
+
 	'use strict';
 
 	/**
+           * @constructor
+           * @param {string} template HTML String of a li element
 	     * View that abstracts away the browser's DOM completely.
 	     * It has two simple entry points:
-	     *
 	     *   - bind(eventName, handler)
 	     *     Takes a todo application event and registers the handler
 	     *   - render(command, parameterObject)
@@ -99,9 +100,9 @@
 	};
 
       /**
-	 * Remplace l' ancien élément par l' élément édité.
-	 * @param  {number} (id)    L' ID de l' élément à éditer.
-	 * @param  {string} (title) Le contenu de le la modification de l' élément.
+	 * Replace former element by edited element.
+	 * @param  {number} (id) ID of the element to edit
+	 * @param  {string} (title) modified content of the element
 	 */
 	View.prototype._editItemDone = function (id, title) {
 		var listItem = qs('[data-id="' + id + '"]');
@@ -121,75 +122,75 @@
 	};
 
       /**
-	 * Retourne les éléments dans le DOM.
-	 * @param  {string} (viewCmd)   La fonction active.
-	 * @param  {object} (parameter) Les paramètres actifs.
+	 * Return elements within the DOM
+	 * @param  {string} (viewCmd)   The active function.
+	 * @param  {object} (parameter) The active parameters.
 	 */
 	View.prototype.render = function (viewCmd, parameter) {
 		var self = this;
 		var viewCommands = {
                   /**
-			 * Affiche les éléments
+			 * Display the elements
 			 */
 			showEntries: function () {
 				self.$todoList.innerHTML = self.template.show(parameter);
 			},
                   /**
-			 * Supprime l' élément
+			 * Delete the element
 			 */
 			removeItem: function () {
 				self._removeItem(parameter);
 			},
                   /**
-			 * Met à jour le compteur
+			 * Update the counter 
 			 */
 			updateElementCount: function () {
 				self.$todoItemCounter.innerHTML = self.template.itemCounter(parameter);
 			},
                   /**
-			 * Affiche le bouton 'clearCompleted'
+			 * Display 'clearCompleted' button
 			 */
 			clearCompletedButton: function () {
 				self._clearCompletedButton(parameter.completed, parameter.visible);
 			},
                   /**
-			 * Vérifie la visibilité d' élément
+			 * Check element's visibility 
 			 */
 			contentBlockVisibility: function () {
 				self.$main.style.display = self.$footer.style.display = parameter.visible ? 'block' : 'none';
 			},
                   /**
-			 * Affiche tous les éléments
+			 * Display all elements
 			 */
 			toggleAll: function () {
 				self.$toggleAll.checked = parameter.checked;
 			},
                   /**
-			 * Filtre les éléments
+			 * Filter elements
 			 */
 			setFilter: function () {
 				self._setFilter(parameter);
 			},
 			/**
-			 * Vide le contenu du nouveau todo dans l' input
+			 * Clean the new todo content inside the input
 			 */
                    clearNewTodo: function () {
 				self.$newTodo.value = '';
 			},
 			/**
-			 * Affiche les éléments avec le statut completed
+			 * Diplay completed element
 			 */
 			elementComplete: function () {
 				self._elementComplete(parameter.id, parameter.completed);
 			},
 			/**
-			 * Permet d' éditer un élément
+			 * Edit element
 			 */
 			editItem: function () {
 				self._editItem(parameter.id, parameter.title);
 			},
 			/**
-			 * Sauvegarde l' édition d' un élément
+			 * Save element edition
 			 */
 			editItemDone: function () {
 				self._editItemDone(parameter.id, parameter.title);
@@ -200,8 +201,8 @@
 	};
 
       /**
-	 * Ajoute un ID à l' élément.
-	 * @param  {object} (element) L' élément actif.
+	 * Add an ID to an element
+	 * @param  {object} (element) Current element.
 	 */
 	View.prototype._itemId = function (element) {
 		var li = $parent(element, 'li');
@@ -209,8 +210,8 @@
 	};
 
       /**
-	 * EventListener sur la validation de l' édition d'un élément.
-	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 * EventListener sur la validation de l' édition d'un élément. EventListener on validating editing element.
+	 * @param  {function} (handler) An executed callback under conditions.
 	 */
 	View.prototype._bindItemEditDone = function (handler) {
 		var self = this;
@@ -233,8 +234,8 @@
 	};
 
       /**
-	 * EventListener sur l' annulation de l' édition d'un élément.
-	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 * EventListener on cancelling editing element.
+	 * @param  {function} (handler) An executed callback under conditions.
 	 */
 	View.prototype._bindItemEditCancel = function (handler) {
 		var self = this;
@@ -249,9 +250,9 @@
 	};
 
       /**
-	 * Fait le lien entre les méthodes du {@link Controller} et les éléments de {@link View}.
-	 * @param  {function} (event)   L' évenement actif.
-	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 * Make the link between {@link Controller} methods and {@link View} elements.
+	 * @param  {function} (event)  the current event.
+	 * @param  {function} (handler) An executed callback under conditions.
 	 */
 	View.prototype.bind = function (event, handler) {
 		var self = this;
@@ -299,4 +300,4 @@
 	// Export to window
 	window.app = window.app || {};
 	window.app.View = View;
-}(window));
+
